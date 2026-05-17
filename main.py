@@ -16,25 +16,14 @@ def main():
         description="Display GitHub user activity"
     )
     parser.add_argument("user", type=str, help="GitHub username")
-    parser.add_argument("-l", "--limit", type=int, default=5, help="Number of events to display")
+    parser.add_argument("-l", "--limit", type=int, default=5, help="Number of events to display (default 5)")
     parser.add_argument("-t", "--type", choices=[
-        'CommitCommentEvent',
-        'CreateEvent',
-        'DeleteEvent',
-        'DiscussionEvent',
-        'ForkEvent',
-        'GollumEvent',
-        'IssueCommentEvent',
-        'IssuesEvent',
-        'MemberEvent',
-        'PublicEvent',
-        'PullRequestEvent',
-        'PullRequestReviewEvent',
-        'PullRequestReviewCommentEvent',
-        'PushEvent',
-        'ReleaseEvent',
-        'WatchEvent'
-    ], help="Sort events by type")
+            'CommitCommentEvent', 'CreateEvent', 'DeleteEvent',
+            'ForkEvent', 'GollumEvent', 'IssueCommentEvent',
+            'IssuesEvent', 'MemberEvent', 'PullRequestEvent',
+            'PullRequestReviewEvent', 'PullRequestReviewCommentEvent',
+            'PushEvent', 'ReleaseEvent', 'WatchEvent'
+        ], help="Sort events by type")
     args = parser.parse_args()
 
     data = fetch_user_events(args.user)
